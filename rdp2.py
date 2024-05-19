@@ -14,10 +14,10 @@ def parse_args():
     parser.add_argument('--username', type=str, default='Administrator', help='Username for RDP login (default: Administrator)')
     parser.add_argument('--password-file', type=str, required=True, help='Path to file containing password list')
     parser.add_argument('--delay', type=int, default=0, help='Delay between attempts in seconds (default: 0)')
-    parser.add.argument('--max-attempts', type=int, default=1, help='Maximum number of attempts per password (default: 1)')
+    parser.add_argument('--max-attempts', type=int, default=1, help='Maximum number of attempts per password (default: 1)')
     parser.add_argument('--threads', type=int, default=40, help='Number of threads to use for brute forcing (default: 40)')
-    parser.add.argument('--success-log', type=str, default='success.log', help='File to save successful attempts (default: success.log)')
-    parser.add.argument('--failure-log', type=str, default='failure.log', help='File to save failed attempts (default: failure.log)')
+    parser.add_argument('--success-log', type=str, default='success.log', help='File to save successful attempts (default: success.log)')
+    parser.add_argument('--failure-log', type=str, default='failure.log', help='File to save failed attempts (default: failure.log)')
     return parser.parse_args()
 
 def setup_logging(success_log_file, failure_log_file):
